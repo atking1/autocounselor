@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "autocounselor-3cbbd": {
+      "hosting": {
+        "autocounselor": [
+          "autocounselor-3cbbd"
+        ]
+      }
+    }
+  }
+}
