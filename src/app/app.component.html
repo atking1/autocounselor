@@ -1,9 +1,7 @@
 <h1>{{title}}</h1>
 <ul>
-    test
-    <li *ngFor="let question of (quest | async)">
-        Question Text: {{ question.payload.val().text }}
-        Question Weights: {{ question.weights }}
+    <li *ngFor="let question of questions">
+        {{ question }}
     </li>
 </ul>
 

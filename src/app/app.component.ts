@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import 'firebase/database';
 
@@ -8,15 +8,17 @@ import 'firebase/database';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent  {
   title = 'Autocounselor';
-  items: Observable<any[]>;
-  quest: Observable<any[]>;
+  questions: any[];
   chosenOption: string;
   options: string[] = ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree'];
-  constructor(private db: AngularFireDatabase) {}
+  constructor(db: AngularFireDatabase) {
+    db.list('/questions').valueChanges().subscribe(questions => {
+      this.questions = questions;
+      console.log(this.questions);
+    });
 
-  ngOnInit() {
-    this.quest = this.db.list('/quest').valueChanges();
   }
+
 }
