@@ -25,8 +25,12 @@ $autocounselor-theme: mat-light-theme($autocounselor-primary, $autocounselor-acc
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are usin    g.
 @include angular-material-theme($autocounselor-theme);
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #D99F62; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #f5f2d0; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

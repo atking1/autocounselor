@@ -1,16 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+
+<body>
 <h1>{{title}}</h1>
-<ul>
-    <li *ngFor="let question of questions">
-        {{ question }}
+<ol id="questionList">
+    <li *ngFor="let question of questions; index as i">
+        {{ questions[i].text }}
+        <br>
+        <mat-radio-group
+        class="radio-group"
+        [(ngModel)] = "questions[i].chosenOption">
+        <!--<mat-radio-button class="radio" *ngFor="let option of options" [value]="option"><button mat-button>{{option}}</button></mat-radio-button> -->
+        <mat-radio-button class="radio" [value]=1 >Strongly Disagree</mat-radio-button><br>
+        <mat-radio-button class="radio" [value]=2>Disagree</mat-radio-button><br>
+        <mat-radio-button class="radio" [value]=3>Neutral</mat-radio-button><br>
+        <mat-radio-button class="radio" [value]=4>Agree</mat-radio-button><br>
+        <mat-radio-button class="radio" [value]=5>Strongly Agree</mat-radio-button><br>
+        </mat-radio-group>
+        <br><br>
     </li>
-</ul>
+</ol>
 
-<p></p>
-<p></p>
-<mat-radio-group
-class="radio-group"
-[(ngModel)] = "chosenOption">
-    <mat-radio-button class="radio" *ngFor="let option of options" [value]="option">{{option}}</mat-radio-button>
-</mat-radio-group>
-
-<div>The chosen option is: {{chosenOption}}</div>
+<button mat-raised-button id="PrevButton" (click)="decrementCounter()" disabled>Previous Page</button>
+<button mat-raised-button id="NextButton" (click)="incrementCounter()">Next Page</button>
+<button mat-raised-button id="FinishButton" (click)="computeScores()">Finish</button>
+<br>
+</body>
+</html>
