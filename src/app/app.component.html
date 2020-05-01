@@ -28,12 +28,56 @@
 <button mat-raised-button id="FinishButton" (click)="computeScores()">Finish</button>
 <br>
 <div id="ResultsSection" [hidden]="hidden">
+    <ol>
+        Your highest score was for the major group Agriculture!
+        This group: 
+        <ul>
+            <li>Agriculture:
+
+            Agriculture is the art of cultivating plants, livestock, or other living things for the purposes of human use.
+            Some jobs in this field include:
+            <ul>
+                <li>
+                    Botanist: Botanists are scientists who study any and all aspects of plants, such as how they reproduce or their uses for humans.
+                    <a href="https://www.environmentalscience.org/career/botanist">Read more about Botanists.</a>
+                </li>
+                <li>
+                    Forester: Foresters are responsible for protecting, nurturing, and maintaining forests across the world.
+                    <a href="https://www.environmentalscience.org/career/forester">Read more about Foresters.</a>
+                </li>
+                <li>
+                    Park Ranger: Park Rangers manage and protect parks, and often serve as a mixture between educators and law enforcement.
+                    <a href="https://www.environmentalscience.org/career/park-ranger">Read more about Park Rangers.</a>
+                </li>
+                <li>
+                    Soil Engineer: Soil Engineers investigate the properties of soil, determining how and when it is suitable for human use.
+                    <a href="https://www.environmentalscience.org/career/soil-engineer">Read more about Soil Engineers.</a>
+                </li>
+            </ul>
+            You can learn more about this major <a href="https://www.nationalgeographic.org/encyclopedia/agriculture">here</a>!
+            </li>
+        </ul>
+    </ol>
+    <!-- 
     <p>test!</p>
     <ol id="score">
-        <ol>
-
-        </ol>
+        <ng-container *ngFor="let majorGroup of majorGroups; index as j">
+            <ol *ngIf="j === largestIndex">
+                {{majorGroups[j].majNum}}
+                <ol *ngFor="let major of majorGroups[j].majors">
+                    Major: {{major.name}}
+                    Description: {{major.desc}}
+                    Jobs:
+                    <ol *ngFor="let job of major.jobs">
+                        {{job.jobDesc}}
+                        {{job.jobTitle}}
+                        {{job.link}}
+                    </ol>
+                </ol>
+            </ol>
+        </ng-container>
     </ol>
+    -->
 </div>
 </body>
 </html>

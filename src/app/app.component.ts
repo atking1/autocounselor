@@ -15,6 +15,8 @@ export class AppComponent {
   weights: [];
   questions: any[];
   majorGroups: any[];
+  major: any[];
+  jobs: any[];
   largestIndex: number;
   scores: Array<number> = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   constructor(db: AngularFireDatabase) {
@@ -70,7 +72,7 @@ export class AppComponent {
       this.weights = question.weight.split(',');
       console.log(this.weights);
       console.log(question.chosenOption);
-      for (i = 0; i <= this.weights.length; i++) {
+      for (i = 0; i < this.weights.length; i++) {
         if (this.weights[i] !== 0) {
           if (question.chosenOption === 1) {
             this.scores[i] -= (2 * this.weights[i]);
@@ -96,6 +98,8 @@ export class AppComponent {
         largest = this.majorGroups[i];
       }
     }
+    this.major = largest.majors;
+   // this.jobs = this.major.jobs;
     console.log(this.scores);
     this.hidden = false;
   }
